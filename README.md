@@ -1,0 +1,1 @@
+# Human_Centric_AI_Patent_Strategy
