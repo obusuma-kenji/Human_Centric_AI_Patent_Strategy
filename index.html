@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI発明者問題の法的確定と実務対応ガイド｜DABUS事件最高裁決定を受けて</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Shippori+Mincho:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0a1628;
+  --navy-mid: #122040;
+  --navy-light: #1a3060;
+  --gold: #c9a84c;
+  --gold-light: #e8c97a;
+  --gold-pale: #f5e9c8;
+  --cream: #f8f5ef;
+  --white: #ffffff;
+  --text-dark: #1a1a2e;
+  --text-mid: #3d3d5c;
+  --text-light: #7a7a9a;
+  --accent-red: #8b2020;
+  --border: rgba(201,168,76,0.25);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: var(--cream);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* ── HEADER / HERO ── */
+.hero {
+  min-height: 100vh;
+  background: var(--navy);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.hero-pattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.hero-glow {
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%);
+  top: -150px;
+  right: -150px;
+  pointer-events: none;
+}
+
+.hero-glow2 {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(26,48,96,0.8) 0%, transparent 70%);
+  bottom: -100px;
+  left: -100px;
+  pointer-events: none;
+}
+
+/* NAV */
+nav {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 60px;
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+}
+
+.nav-logo {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 14px;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.nav-badge {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.1em;
+  border: 1px solid rgba(201,168,76,0.3);
+  padding: 6px 14px;
+  border-radius: 2px;
+}
+
+/* HERO CONTENT */
+.hero-content {
+  position: relative;
+  z-index: 5;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 60px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.hero-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(36px, 5vw, 68px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.25;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.hero-title span {
+  color: var(--gold);
+}
+
+.hero-subtitle {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(18px, 2.5vw, 28px);
+  font-weight: 400;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 48px;
+  line-height: 1.6;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+}
+
+.hero-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hero-meta-label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.hero-meta-value {
+  font-size: 14px;
+  color: rgba(255,255,255,0.8);
+  font-weight: 500;
+}
+
+.hero-cta-group {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--navy);
+  border: none;
+  padding: 16px 36px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(201,168,76,0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 16px 36px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-secondary:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* SCROLL INDICATOR */
+.scroll-hint {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,0.3);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.scroll-hint::after {
+  content: '';
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(201,168,76,0.6), transparent);
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ── SECTION COMMON ── */
+section {
+  padding: 100px 60px;
+}
+
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-eyebrow::before {
+  content: '';
+  width: 30px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.section-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(26px, 3.5vw, 44px);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.35;
+  margin-bottom: 20px;
+}
+
+.section-title.light {
+  color: var(--white);
+}
+
+.section-lead {
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--text-mid);
+  max-width: 700px;
+}
+
+/* ── VERDICT BANNER ── */
+.verdict-banner {
+  background: var(--navy-mid);
+  padding: 60px;
+  border-left: 4px solid var(--gold);
+  position: relative;
+  overflow: hidden;
+}
+
+.verdict-banner::after {
+  content: '確定';
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Shippori Mincho', serif;
+  font-size: 120px;
+  font-weight: 800;
+  color: rgba(201,168,76,0.06);
+  pointer-events: none;
+  letter-spacing: -0.05em;
+}
+
+.verdict-text {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(20px, 3vw, 36px);
+  color: var(--white);
+  font-weight: 600;
+  line-height: 1.5;
+  position: relative;
+  z-index: 1;
+}
+
+.verdict-text em {
+  color: var(--gold);
+  font-style: normal;
+}
+
+/* ── INFOGRAPHIC SECTION ── */
+.infographic-section {
+  background: var(--white);
+}
+
+.infographic-wrap {
+  border: 1px solid var(--border);
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(10,22,40,0.1);
+}
+
+.infographic-wrap img {
+  width: 100%;
+  display: block;
+}
+
+/* ── KEY POINTS ── */
+.key-points-section {
+  background: var(--cream);
+}
+
+.points-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 56px;
+}
+
+.point-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 40px 32px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.point-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 50px rgba(10,22,40,0.1);
+  border-color: var(--gold);
+}
+
+.point-number {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 48px;
+  font-weight: 800;
+  color: rgba(201,168,76,0.2);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.point-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.point-text {
+  font-size: 13.5px;
+  line-height: 1.85;
+  color: var(--text-mid);
+}
+
+/* ── VIDEO SECTION ── */
+.video-section {
+  background: var(--navy);
+  position: relative;
+  overflow: hidden;
+}
+
+.video-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.video-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.video-text .section-lead {
+  color: rgba(255,255,255,0.65);
+}
+
+.video-wrap {
+  position: relative;
+  background: #000;
+  border: 1px solid rgba(201,168,76,0.3);
+  box-shadow: 0 0 60px rgba(201,168,76,0.1);
+}
+
+.video-wrap video {
+  width: 100%;
+  display: block;
+  max-height: 340px;
+  object-fit: cover;
+}
+
+.video-label {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  padding: 6px 14px;
+  text-transform: uppercase;
+}
+
+/* ── AUDIO SECTION ── */
+.audio-section {
+  background: var(--cream);
+}
+
+.audio-card {
+  background: var(--navy);
+  padding: 56px;
+  display: flex;
+  gap: 48px;
+  align-items: center;
+  border: 1px solid rgba(201,168,76,0.2);
+  flex-wrap: wrap;
+}
+
+.audio-icon {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+}
+
+.audio-info {
+  flex: 1;
+  min-width: 200px;
+}
+
+.audio-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.audio-desc {
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.audio-wrap {
+  flex: 1;
+  min-width: 280px;
+}
+
+audio {
+  width: 100%;
+  filter: invert(1) hue-rotate(180deg) brightness(0.8);
+  border-radius: 0;
+}
+
+/* ── SLIDES SECTION ── */
+.slides-section {
+  background: var(--white);
+}
+
+.slides-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 48px;
+}
+
+.slide-thumb {
+  border: 1px solid var(--border);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.slide-thumb:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 40px rgba(10,22,40,0.15);
+  border-color: var(--gold);
+  z-index: 2;
+}
+
+.slide-thumb img {
+  width: 100%;
+  display: block;
+}
+
+.slide-thumb-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10,22,40,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.slide-thumb:hover .slide-thumb-overlay {
+  opacity: 1;
+}
+
+.slide-thumb-overlay span {
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: 1px solid var(--gold);
+  padding: 8px 18px;
+}
+
+/* PDF DOWNLOAD */
+.pdf-section {
+  background: var(--navy-mid);
+  padding: 80px 60px;
+}
+
+.pdf-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.pdf-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(201,168,76,0.25);
+  padding: 36px;
+  transition: all 0.3s ease;
+}
+
+.pdf-card:hover {
+  background: rgba(201,168,76,0.06);
+  border-color: var(--gold);
+}
+
+.pdf-icon {
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+
+.pdf-card-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 10px;
+  line-height: 1.45;
+}
+
+.pdf-card-desc {
+  font-size: 12.5px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.btn-pdf {
+  display: inline-block;
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 10px 22px;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-pdf:hover {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+/* ── TIMELINE ── */
+.timeline-section {
+  background: var(--cream);
+}
+
+.timeline {
+  position: relative;
+  margin-top: 60px;
+  padding-left: 40px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--gold), rgba(201,168,76,0.1));
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 48px;
+  padding-left: 36px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -40px;
+  top: 4px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--navy);
+  border: 3px solid var(--gold);
+}
+
+.timeline-date {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.timeline-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.timeline-text {
+  font-size: 14px;
+  color: var(--text-mid);
+  line-height: 1.8;
+  max-width: 600px;
+}
+
+/* ── COUNTRIES TABLE ── */
+.table-section {
+  background: var(--white);
+}
+
+.countries-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 48px;
+  font-size: 14px;
+}
+
+.countries-table th {
+  background: var(--navy);
+  color: var(--gold);
+  padding: 16px 20px;
+  text-align: left;
+  font-family: 'Shippori Mincho', serif;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.countries-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  color: var(--text-mid);
+  vertical-align: top;
+}
+
+.countries-table tr:hover td {
+  background: rgba(201,168,76,0.04);
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 2px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.status-denied { background: rgba(139,32,32,0.12); color: #8b2020; }
+.status-approved { background: rgba(32,100,32,0.12); color: #206420; }
+.status-conditional { background: rgba(140,100,0,0.12); color: #8c6400; }
+
+/* ── CONCLUSION ── */
+.conclusion-section {
+  background: var(--navy);
+  position: relative;
+  overflow: hidden;
+}
+
+.conclusion-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 80% 50%, rgba(201,168,76,0.08) 0%, transparent 60%);
+}
+
+.conclusion-quote {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(22px, 3vw, 40px);
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.55;
+  position: relative;
+  z-index: 1;
+  padding-left: 40px;
+  border-left: 3px solid var(--gold);
+  margin: 48px 0;
+}
+
+.conclusion-quote em {
+  color: var(--gold);
+  font-style: normal;
+}
+
+/* ── MODAL / LIGHTBOX ── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-content {
+  max-width: 90vw;
+  max-height: 90vh;
+  position: relative;
+}
+
+.modal-content img {
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+  display: block;
+}
+
+.modal-close {
+  position: absolute;
+  top: -44px;
+  right: 0;
+  background: none;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  padding: 8px 16px;
+  font-size: 12px;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: #060e1c;
+  padding: 48px 60px;
+  border-top: 1px solid rgba(201,168,76,0.15);
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: gap;
+  gap: 24px;
+}
+
+.footer-note {
+  font-size: 12px;
+  color: rgba(255,255,255,0.3);
+  line-height: 1.7;
+}
+
+.footer-badge {
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  opacity: 0.7;
+}
+
+/* ── ANIMATIONS ── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 20px 24px; }
+  section { padding: 70px 24px; }
+  .hero-content { padding: 60px 24px 60px; }
+  .video-layout { grid-template-columns: 1fr; }
+  .audio-card { flex-direction: column; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+  .verdict-banner { padding: 36px 24px; }
+  .pdf-section { padding: 60px 24px; }
+  .countries-table { font-size: 12px; }
+  .countries-table th, .countries-table td { padding: 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+
+  <nav>
+    <div class="nav-logo">Strategic IP Intelligence Advisory</div>
+    <div class="nav-badge">弁理士会 研修資料 2024</div>
+  </nav>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">DABUS事件 最高裁決定特集</div>
+    <h1 class="hero-title">
+      AI発明者問題の<span>法的確定</span>と<br>
+      実務対応ガイド
+    </h1>
+    <p class="hero-subtitle">
+      DABUS事件最高裁決定から読み解く<br>
+      次世代イノベーションの知財戦略とIPX
+    </p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">決定日</span>
+        <span class="hero-meta-value">2024年9月4日（最高裁）</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">対象事件</span>
+        <span class="hero-meta-value">DABUS事件（AI発明者性）</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">対象読者</span>
+        <span class="hero-meta-value">弁理士・知財担当者・企業法務</span>
+      </div>
+    </div>
+    <div class="hero-cta-group">
+      <a href="#video" class="btn-primary">動画解説を視聴する</a>
+      <a href="#audio" class="btn-secondary">音声解説を聴く</a>
+    </div>
+  </div>
+
+  <div class="scroll-hint">SCROLL</div>
+</section>
+
+<!-- ═══ VERDICT BANNER ═══ -->
+<div style="background: var(--navy-mid); padding: 60px;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div class="verdict-banner fade-up">
+      <p class="verdict-text">
+        最高裁決定により確定：<em>発明者は「自然人」に限られる。</em><br>
+        AIによる自律的発明は、特許法上の「発明」として認められない。
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ INFOGRAPHIC ═══ -->
+<section class="infographic-section">
+  <div class="section-inner">
+    <div class="section-eyebrow fade-up">Overview</div>
+    <h2 class="section-title fade-up">AI発明者問題の法的確定と実務対応ガイド</h2>
+    <p class="section-lead fade-up" style="margin-bottom: 48px;">
+      DABUS事件の全容と、弁理士・知財担当者が今すぐ取るべきアクションを一枚のインフォグラフィックで整理しました。
+    </p>
+    <div class="infographic-wrap fade-up">
+      <img src="AI発明者の特許_人間限定の確定.png" alt="AI発明者問題の法的確定と実務対応ガイド インフォグラフィック" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ═══ KEY POINTS ═══ -->
+<section class="key-points-section">
+  <div class="section-inner">
+    <div class="section-eyebrow fade-up">Key Findings</div>
+    <h2 class="section-title fade-up">最高裁決定がもたらす4つのパラダイムシフト</h2>
+    <div class="points-grid">
+      <div class="point-card fade-up">
+        <div class="point-number">01</div>
+        <div class="point-title">司法判断の確定<br>—自然人主義の再確認</div>
+        <p class="point-text">知的財産基本法第2条・特許法第29条・第33条の法体系が一貫して「人間」を主語とすることが、DABUS事件を通じて最終的に確定した。AIは権利能力を欠き、特許の帰属主体となり得ない。</p>
+      </div>
+      <div class="point-card fade-up">
+        <div class="point-number">02</div>
+        <div class="point-title">グローバル協調<br>—日米欧三極が足並みを揃える</div>
+        <p class="point-text">日本（2024/9）、英国（2023/12）、米国（2026/3最高裁上告棄却）と主要三極において「AI発明者否定」の司法判断が完全に確定。オーストラリアも大法廷で自然人限定に回帰した。</p>
+      </div>
+      <div class="point-card fade-up">
+        <div class="point-number">03</div>
+        <div class="point-title">R&D実務の変容<br>—「着想」の証明が鍵</div>
+        <p class="point-text">USPTO 2025年11月改訂ガイダンスが示す通り、人間による「着想（Conception）」の立証とR&Dドキュメンテーションの高度化が、特許有効性を左右する最重要要素となった。</p>
+      </div>
+      <div class="point-card fade-up">
+        <div class="point-number">04</div>
+        <div class="point-title">国家戦略（IPX）<br>—立法府への委託と政策課題</div>
+        <p class="point-text">司法が「立法府での解決」を明示したことで、知的財産推進計画2025/2026が掲げるIPトランスフォーメーション（IPX）の枠組みの中で、AI発明保護の立法論が本格化する。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ VIDEO ═══ -->
+<section class="video-section" id="video">
+  <div class="section-inner">
+    <div class="video-layout">
+      <div class="video-text">
+        <div class="section-eyebrow" style="color: var(--gold);">Video</div>
+        <h2 class="section-title light fade-up">動画解説<br>AI発明者——法廷闘争の記録</h2>
+        <p class="section-lead fade-up" style="margin-bottom: 32px;">
+          DABUS事件の経緯から最高裁決定の法的構造、企業の知財戦略への影響まで、体系的な動画解説でわかりやすく解説します。弁理士会研修・社内勉強会でそのままご活用いただけます。
+        </p>
+        <ul style="list-style: none; color: rgba(255,255,255,0.6); font-size: 13.5px; line-height: 2.2;">
+          <li>✦ DABUS事件の訴訟経緯（三審制の推移）</li>
+          <li>✦ 自然人主義の法理的構造（条文解説）</li>
+          <li>✦ 主要国との国際比較とグローバルスタンダード</li>
+          <li>✦ 企業・弁理士が今すぐとるべきアクション</li>
+        </ul>
+      </div>
+      <div>
+        <div class="video-wrap fade-up">
+          <div class="video-label">動画解説</div>
+          <video controls preload="metadata" poster="">
+            <source src="AI発明者_法廷闘争の記録.mp4" type="video/mp4">
+            お使いのブラウザは動画再生に対応していません。
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ AUDIO ═══ -->
+<section class="audio-section" id="audio">
+  <div class="section-inner">
+    <div class="section-eyebrow fade-up">Audio</div>
+    <h2 class="section-title fade-up">音声解説<br>AI発明の着想証明——実務の分水嶺</h2>
+    <p class="section-lead fade-up" style="margin-bottom: 48px;">
+      「着想（Conception）」という伝統的な法的基準が、AI時代においていかに重要性を増しているか。音声でじっくりと解説します。通勤時・移動中にも学習いただけます。
+    </p>
+    <div class="audio-card fade-up">
+      <div class="audio-icon">🎙</div>
+      <div class="audio-info">
+        <div class="audio-title">AI発明の着想証明</div>
+        <div class="audio-desc">
+          NotebookLM生成・音声解説コンテンツ<br>
+          USPTO 2025年11月改訂ガイダンスの核心と、<br>Pannu因子撤回が実務に与えるインパクトを詳解
+        </div>
+      </div>
+      <div class="audio-wrap">
+        <audio controls>
+          <source src="AI発明の着想証明.m4a" type="audio/mp4">
+          お使いのブラウザは音声再生に対応していません。
+        </audio>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SLIDES PDF ═══ -->
+<section class="slides-section" id="slides">
+  <div class="section-inner">
+    <div class="section-eyebrow fade-up">Presentation Slides</div>
+    <h2 class="section-title fade-up">スライド資料<br>全15枚・弁理士会発表レベル</h2>
+    <p class="section-lead fade-up" style="margin-bottom: 0;">
+      NotebookLMが生成した高品質スライドをそのまま弁理士会支部研修・企業内勉強会でご活用いただけます。各スライドをクリックすると拡大表示されます。
+    </p>
+
+    <div class="slides-grid" style="margin-top: 48px;">
+      <!-- スライド一覧: Human_Centric_AI_Patent_Strategy.pdf の各ページを静的プレビューとして表示 -->
+      <!-- 実際のPDFページのサムネイルはPDF.jsまたはサーバー側で生成する想定。ここでは代替表示 -->
+      <div class="slide-thumb fade-up" onclick="openSlideViewer()">
+        <img src="AI発明者の特許_人間限定の確定.png" alt="スライド1 タイトル">
+        <div class="slide-thumb-overlay"><span>拡大表示</span></div>
+      </div>
+      <!-- 残りのスライドは以下のカード形式で案内 -->
+      <div class="point-card fade-up" style="display:flex; flex-direction:column; justify-content:center; min-height: 200px; background: var(--navy); border-color: rgba(201,168,76,0.2);">
+        <div style="color: var(--gold); font-size: 32px; margin-bottom: 12px;">📑</div>
+        <div class="point-title" style="color: var(--white); font-size: 15px;">全スライドをPDFで閲覧・ダウンロード</div>
+        <p style="color: rgba(255,255,255,0.5); font-size: 13px; line-height: 1.7; margin-bottom: 20px;">15枚のスライド全編を下記のダウンロードセクションよりご取得いただけます。</p>
+        <a href="#downloads" class="btn-pdf" style="align-self: flex-start;">PDFをダウンロード</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TIMELINE ═══ -->
+<section class="timeline-section">
+  <div class="section-inner">
+    <div class="section-eyebrow fade-up">Case History</div>
+    <h2 class="section-title fade-up">DABUS事件の国内外訴訟の軌跡</h2>
+    <div class="timeline fade-up">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">2018〜2020年</div>
+        <div class="timeline-title">タラー博士、世界各国に同時出願</div>
+        <p class="timeline-text">ステファン・タラー博士が開発したAI「DABUS」を発明者として、日本・米国・欧州・英国・オーストラリア等に一斉出願。日本特許庁は補正命令を出したが、応じなかったため却下処分。</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">2021〜2022年</div>
+        <div class="timeline-title">各国で相次ぐ司法判断</div>
+        <p class="timeline-text">南アフリカが方式審査の特例として認定（2021年）。オーストラリア1審は一時肯定したが、2022年4月の大法廷で覆される。英国・欧州では不認定が確定。</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">2023年12月</div>
+        <div class="timeline-title">英国最高裁、不認定を確定</div>
+        <p class="timeline-text">英国最高裁判所が「特許法上の発明者は人間でなければならない」として不認定を確定。主要三極の足並みが揃い始める。</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">2024年9月4日</div>
+        <div class="timeline-title">日本最高裁、上告不受理決定</div>
+        <p class="timeline-text">日本最高裁判所が上告を受理しない決定を下し、1審（東京地裁）・2審（知財高裁）の判決が確定。「発明者は自然人に限られる」との判断が国内で確定した。</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">2025年11月</div>
+        <div class="timeline-title">USPTO、改訂審査ガイダンスを公表</div>
+        <p class="timeline-text">米国特許商標庁が「AI支援型発明に関する改訂審査ガイダンス」を発表。AIを「研究室の器具と同等のツール」と位置づけ、人間の「着想（Conception）」基準を復権。Pannu因子のAI適用を撤回。</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">2026年3月</div>
+        <div class="timeline-title">米国最高裁、上告棄却——日米欧三極が完全確定</div>
+        <p class="timeline-text">米国最高裁判所がタラー氏の上告を棄却。日・米・欧（EPO）の主要三極すべてで「AI発明者否定」の司法判断が確定し、国際的なグローバルスタンダードが形成された。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ COUNTRY TABLE ═══ -->
+<section class="table-section">
+  <div class="section-inner">
+    <div class="section-eyebrow fade-up">International Comparison</div>
+    <h2 class="section-title fade-up">主要国・地域におけるAI発明者性の判断状況</h2>
+    <p class="section-lead fade-up" style="margin-bottom: 0;">五大特許庁（JPO/USPTO/EPO/CNIPA/KIPO）を含む各国の最終判断を整理しました。</p>
+    <div style="overflow-x: auto; margin-top: 48px;">
+      <table class="countries-table fade-up">
+        <thead>
+          <tr>
+            <th>国・地域</th>
+            <th>判断ステータス</th>
+            <th>主な根拠・理由</th>
+            <th>確定時期</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>🇯🇵 日本</strong></td>
+            <td><span class="status-badge status-denied">不認定（確定）</span></td>
+            <td>知財基本法・特許法が「人間」を前提。AIは権利能力を欠く。</td>
+            <td>2024年9月</td>
+          </tr>
+          <tr>
+            <td><strong>🇺🇸 米国</strong></td>
+            <td><span class="status-badge status-denied">不認定（確定）</span></td>
+            <td>特許法上の「individual（個人）」は自然人を指すと解釈。</td>
+            <td>2026年3月</td>
+          </tr>
+          <tr>
+            <td><strong>🇪🇺 欧州（EPC）</strong></td>
+            <td><span class="status-badge status-denied">不認定（確定）</span></td>
+            <td>発明者は「法的能力を持つ人物」である必要がある。</td>
+            <td>確定済み</td>
+          </tr>
+          <tr>
+            <td><strong>🇬🇧 英国</strong></td>
+            <td><span class="status-badge status-denied">不認定（確定）</span></td>
+            <td>特許法上の発明者は人間でなければならない。</td>
+            <td>2023年12月</td>
+          </tr>
+          <tr>
+            <td><strong>🇦🇺 オーストラリア</strong></td>
+            <td><span class="status-badge status-denied">不認定（確定）</span></td>
+            <td>1審肯定→2022年大法廷で覆。財産権の帰属主体として自然人限定。</td>
+            <td>2022年4月</td>
+          </tr>
+          <tr>
+            <td><strong>🇩🇪 ドイツ</strong></td>
+            <td><span class="status-badge status-conditional">条件付き</span></td>
+            <td>責任主体としての自然人の併記を条件として要求。</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td><strong>🇿🇦 南アフリカ</strong></td>
+            <td><span class="status-badge status-approved">認定</span></td>
+            <td>方式審査のみを行う制度上の特例による認定。</td>
+            <td>2021年</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DOWNLOADS ═══ -->
+<section class="pdf-section" id="downloads">
+  <div class="section-inner">
+    <div class="section-eyebrow" style="color: var(--gold);">Downloads</div>
+    <h2 class="section-title light fade-up">資料ダウンロード</h2>
+    <p class="section-lead fade-up" style="color: rgba(255,255,255,0.55);">
+      弁理士会発表・社内研修・クライアント説明にご活用いただける資料一式です。
+    </p>
+    <div class="pdf-cards">
+      <div class="pdf-card fade-up">
+        <div class="pdf-icon">📋</div>
+        <div class="pdf-card-title">AI発明者の特許「人間限定」の確定<br>—分析レポート全文</div>
+        <div class="pdf-card-desc">最高裁決定の法理的構造、国際比較、企業の知財戦略への影響を網羅した9ページの詳細分析レポート。</div>
+        <a href="AI発明者の特許_人間限定の確定.pdf" download class="btn-pdf">PDFをダウンロード</a>
+      </div>
+      <div class="pdf-card fade-up">
+        <div class="pdf-icon">🎯</div>
+        <div class="pdf-card-title">Human-Centric AI Patent Strategy<br>—スライド資料（全15枚）</div>
+        <div class="pdf-card-desc">弁理士会研修・企業勉強会向けのプレゼンテーションスライド。視覚的なダイアグラムと図解で構成。</div>
+        <a href="Human_Centric_AI_Patent_Strategy.pdf" download class="btn-pdf">PDFをダウンロード</a>
+      </div>
+      <div class="pdf-card fade-up">
+        <div class="pdf-icon">📊</div>
+        <div class="pdf-card-title">主要国地域におけるAI発明者性<br>の判断状況と法的根拠（Excel）</div>
+        <div class="pdf-card-desc">各国の判断状況・法的根拠・確定時期を整理したデータシート。セミナー資料作成に活用可能。</div>
+        <a href="主要国地域におけるAI発明者性の判断状況と法的根拠.xlsx" download class="btn-pdf">Excelをダウンロード</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONCLUSION ═══ -->
+<section class="conclusion-section">
+  <div class="section-inner">
+    <div class="section-eyebrow" style="color: var(--gold);">Conclusion</div>
+    <div class="conclusion-quote fade-up">
+      AIは人間の創造力を<em>代替</em>するものではなく、<br>
+      未踏の技術的極致へと導く<em>「知のブースター」</em>である。<br>
+      <span style="font-size: 0.65em; color: rgba(255,255,255,0.5); font-weight: 400;">——本報告書より</span>
+    </div>
+    <p style="color: rgba(255,255,255,0.6); font-size: 15px; line-height: 1.9; max-width: 700px; margin-bottom: 48px;">
+      今回の最高裁決定を、AI時代の新たな知財秩序を構築するための出発点と捉え、技術と法が互いに高め合うエコシステムの実現に向けた努力を継続していくことが、日本の競争力を維持する唯一の道です。
+    </p>
+    <div class="hero-cta-group">
+      <a href="#video" class="btn-primary">動画解説を視聴する</a>
+      <a href="#downloads" class="btn-secondary">資料をダウンロードする</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-note">
+      本資料はNotebookLMを活用して作成した研究・教育目的のコンテンツです。<br>
+      法的判断・実務アドバイスについては必ず専門家にご相談ください。<br>
+      引用文献・出典は分析レポートPDF内に詳記しています。
+    </div>
+    <div class="footer-badge">Strategic IP Intelligence Advisory © 2024</div>
+  </div>
+</footer>
+
+<!-- ═══ LIGHTBOX MODAL ═══ -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal-content">
+    <button class="modal-close" onclick="document.getElementById('modalOverlay').classList.remove('active')">✕ 閉じる</button>
+    <img id="modalImg" src="" alt="">
+  </div>
+</div>
+
+<script>
+// スライドサムネイルの拡大
+function openSlideViewer() {
+  const modal = document.getElementById('modalOverlay');
+  document.getElementById('modalImg').src = 'AI発明者の特許_人間限定の確定.png';
+  modal.classList.add('active');
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('modalOverlay')) {
+    document.getElementById('modalOverlay').classList.remove('active');
+  }
+}
+
+// スライドサムネイルに画像クリックを追加
+document.querySelectorAll('.slide-thumb').forEach(el => {
+  el.addEventListener('click', function() {
+    const img = this.querySelector('img');
+    if (img) {
+      const modal = document.getElementById('modalOverlay');
+      document.getElementById('modalImg').src = img.src;
+      modal.classList.add('active');
+    }
+  });
+});
+
+// Intersection Observer でフェードイン
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, entry.target.dataset.delay || 0);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-up').forEach((el, i) => {
+  el.dataset.delay = (i % 4) * 100;
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
